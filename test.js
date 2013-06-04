@@ -238,5 +238,241 @@ function AlphabetSoup(str) {
 // to see how to enter arguments in JavaScript scroll down
 print(AlphabetSoup(readline()));                            
 
+// 11. a b separation
+//
 
+function ABCheck(str) { 
+  var space = 0;
+  for (var i=0; i < str.length; i++) {
+    if (str[i] === 'a') {
+      space += 1;
+    }
+    if (space === 2 && str[i] === 'b') {
+      return true;
+    }
+  }
+  
+  return false;
+
+  // code goes here  
+  return str; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+print(ABCheck(readline()));    
+
+
+// 12. Vowels in string
+
+function VowelCount(str) { 
+  
+  var vow = 0;
+  
+  for (var i = 0; i < str.length; i++) {
+    if (/[aeuio]/.test(str[i])) {
+        vow += 1;
+     }
+  }
+
+  str = vow;
+  // code goes here  
+  return str; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+print(VowelCount(readline()));   
+
+
+// 13. Words in sentence
+//
+function WordCount(str) { 
+  
+  var spl = str.split(' ');
+  
+  str = spl.length;
+
+  // code goes here  
+  return str; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+print(WordCount(readline()));                            
+
+// 14. Prime numbers
+// 10 , 594
+
+
+function PrimeTime(num) { 
+  
+  var sq = Math.round(Math.sqrt(num)),
+      prime = false;
+  
+  for (var i=2; i<=sq; i++) {
+    if (num % i == 0) {
+      return false;
+    }
+  }
+  
+  return true;
+
+  // code goes here  
+  return num; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+print(PrimeTime(readline()));    
+
+
+// 15. XO count
+
+function ExOh(str) { 
+  var x = 0,
+      o = 0;
+  
+  for (var i=0; i< str.length; i++) {
+    if (str[i] == 'o') {
+      o += 1;
+    } 
+    else if (str[i] == 'x') {
+      x += 1;
+    } 
+  }
+  
+  if ( x === o ) {
+    return true;
+  }
+  else {
+    return false; 
+  }
+
+  // code goes here  
+  return str; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+print(ExOh(readline()));    
+
+// 16. String equality
+//
+function Palindrome(str) { 
+  
+  var str = str.replace(/\s/g, ''),
+      newstr = '';
+  
+  for (var i=0; i<= str.length; i++) {
+    newstr = newstr + str.charAt( str.length - i);  
+  }
+  
+  if (str === newstr) {
+    return true;
+  }
+  else {
+    return false;
+  }
+
+  // code goes here  
+  return str; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+print(Palindrome(readline()));                            
+
+
+// 17. String encode
+//
+
+function RunLength(str) { 
+  
+  //var str = str.split("").sort().join(""),
+  var count = 1,
+      first = str[0],
+      newstr = '';
+  if (str.length === 1) {
+    newstr = count + first;
+  }
+  for (var i = 1; i < str.length; i++) {
+    if (str[i] === first) {
+      count += 1;
+    }
+    else {        
+      newstr = newstr + count + first;
+      count = 1;
+      first = str[i];
+    }
+    if (i === str.length - 1) {
+      newstr = newstr + count + first;
+    }
+    
+  }
+  str = newstr;
+  // code goes here  
+  return str; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+print(RunLength(readline()));           
+
+
+// 18. Prime Array
+//
+function getPrimes(max) {
+    var sieve = [], i, j, primes = [];
+    for (i = 2; i <= max; ++i) {
+        if (!sieve[i]) {
+            // i has not been marked -- it is prime
+            primes.push(i);
+            for (j = i * 2; j <= max; j += i) {
+                sieve[j] = true;
+            }
+        }
+    }
+    return primes;
+}
+
+alert(getPrimes(10));
+
+
+
+// 19. Polyndrome 2
+//
+
+function PalindromeTwo(str) { 
+  
+  
+  var str = str.replace(/\W/g, ''),
+      newstr = '';   
+  
+   for (var i=0; i<= str.length; i++) {
+    newstr = newstr + str.charAt( str.length - i);  
+  }    
+  
+   if (str === newstr) {
+    return true;
+  }
+  else {
+    return false;
+  }     
+
+  // code goes here  
+  return str; 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+print(PalindromeTwo(readline()));                            
 
