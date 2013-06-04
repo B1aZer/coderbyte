@@ -1,3 +1,4 @@
+// http://bigocheatsheet.com/
 // Insertion sort
 
 var arr = [5,2,4,6,1,3],
@@ -16,7 +17,7 @@ for (var j= 1; j < arr.length; j++) {
 
 console.log(arr);
 
-// Divide and Conquer Sort Without Recursion 
+// Mergesort
 
 var arr = [2, 4, 6, 1, 3, 5, 8, 7];
 
@@ -41,8 +42,6 @@ var mergesort = function (lst) {
             ll = left.length,
             lr = right.length;
 
-         console.log('left' + left);
-         console.log('right' + right);
         while (ll || lr) {
 
             if (ll && lr) {
@@ -74,7 +73,6 @@ var mergesort = function (lst) {
 
 
         }
-         console.log(res);
         return res;
 
     }
@@ -84,3 +82,46 @@ var mergesort = function (lst) {
 
 console.log(mergesort(arr));
 
+// Quicksort
+
+var arr = [2, 4, 6, 1, 3, 5, 8, 7];
+
+Array.prototype.swap=function(a, b)
+{
+	var tmp=this[a];
+	this[a]=this[b];
+	this[b]=tmp;
+}
+
+function qsort(array, begin, end)
+{
+	if(end-1>begin) {
+		var pivot=begin+Math.floor(Math.random()*(end-begin));
+		pivot=partition(array, begin, end, pivot);
+
+		qsort(array, begin, pivot);
+		qsort(array, pivot+1, end);
+	}
+    return  array;
+}
+
+
+function partition(array, begin, end, pivot)
+{
+	var piv=array[pivot];
+	array.swap(pivot, end-1);
+	var store=begin;
+	var ix;
+	for(ix=begin; ix<end-1; ++ix) {
+		if(array[ix]<=piv) {
+			array.swap(store, ix);
+			++store;
+		}
+	}
+	array.swap(end-1, store);
+
+	return store;
+}
+
+
+console.log(qsort(arr, 0, arr.length));
