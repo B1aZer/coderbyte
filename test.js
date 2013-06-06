@@ -430,7 +430,10 @@ print(RunLength(readline()));
 // 18. Prime Array
 //
 function getPrimes(max) {
-    var sieve = [], i, j, primes = [];
+    var sieve = [], 
+    i, j, 
+    primes = [],
+    max=10000;
     for (i = 2; i <= max; ++i) {
         if (!sieve[i]) {
             // i has not been marked -- it is prime
@@ -451,22 +454,21 @@ alert(getPrimes(10));
 //
 
 function PalindromeTwo(str) { 
-  
-  
-  var str = str.replace(/\W/g, ''),
+  var str = str.replace(/[\W\s]/g, ''),
       newstr = '';   
   
    for (var i=0; i<= str.length; i++) {
     newstr = newstr + str.charAt( str.length - i);  
   }    
   
-   if (str === newstr) {
+   if (str.toLowerCase() === newstr.toLowerCase()) {
     return true;
   }
   else {
+    //return newstr;
     return false;
   }     
-
+                                
   // code goes here  
   return str; 
          
@@ -474,5 +476,18 @@ function PalindromeTwo(str) {
    
 // keep this function call here 
 // to see how to enter arguments in JavaScript scroll down
-print(PalindromeTwo(readline()));                            
+print(PalindromeTwo(readline())); 
+
+//20 Greatest Xommon Divisor
+//
+function gcd (x,y) {
+    while (x !== 0) {
+        var z = x % y;
+        x = y;
+        y = z;
+    }
+    return x;
+}
+
+                          
 
