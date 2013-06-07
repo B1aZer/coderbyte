@@ -429,11 +429,17 @@ print(RunLength(readline()));
 
 // 18. Prime Array
 //
-function getPrimes(max) {
+function PrimeMover(num) { 
     var sieve = [], 
     i, j, 
     primes = [],
     max=10000;
+    if (num === 0) {
+     return 0;
+    }
+    if (num === 1) {
+     return 1;
+    }
     for (i = 2; i <= max; ++i) {
         if (!sieve[i]) {
             // i has not been marked -- it is prime
@@ -443,11 +449,13 @@ function getPrimes(max) {
             }
         }
     }
-    return primes;
+    return primes[num-1];      
+         
 }
-
-alert(getPrimes(10));
-
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+print(PrimeMover(readline()));                            
 
 
 // 19. Polyndrome 2
@@ -481,13 +489,18 @@ print(PalindromeTwo(readline()));
 //20 Greatest Xommon Divisor
 //
 function gcd (x,y) {
-    while (x !== 0) {
+    while (y !== 0) {
         var z = x % y;
         x = y;
         y = z;
     }
     return x;
 }
+
+/*
+Input = 7 & num2 = 3Output = 1
+Input = 36 & num2 = 54Output = 18
+*/
 
                           
 
