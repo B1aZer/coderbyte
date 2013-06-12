@@ -138,4 +138,46 @@ var input3 = [
 alert(sortByOdds(input3));
 
 
+/*
+ * SRM 203
+ * Div 2 Lv 1
+ * http://community.topcoder.com/stat?c=problem_statement&pm=2913&rd=5849
+ */
+
+var existingNames = ["MasterOfDisaster", "DingBat", "Orpheus", "WolfMan", "MrKnowItAll"];
+var existingNames2 = ["MasterOfDisaster", "TygerTyger1", "DingBat", "Orpheus",
+    "TygerTyger", "WolfMan", "MrKnowItAll"];
+var existingNames3 = ["Bart4", "Bart5", "Bart6", "Bart7", "Bart8", "Bart9", "Bart10",
+    "Lisa", "Marge", "Homer", "Bart", "Bart1", "Bart2", "Bart3",
+    "Bart11", "Bart12"];
+var existingNames4 = ["gvI", "umf48", "umf40", "vPl", "uQF", "umf29", "Ubo", "Leu", "umf46", "zKB", "umf9", "umf19", "XTS", "umf18", "eRC", "tXu", "umf", "NYm", "umf57", "fUz", "fgO", "umf17", "umf62", "umf33", "KTj", "umf63", "kSW", "Jed", "umf59", "umf39", "SvE", "umf54", "umf41", "ysr", "umf6", "umf52", "Wvo", "Xck", "PmI", "umf23", "wtn", "umf24", "UfC", "umf32", "umf21", "umf14", "umf61", "umf38", "etz", "mQL"];
+
+var arraysort = function (a, b) {
+    var aNum = a.replace(/\D/g, '') || 0,
+        bNum = b.replace(/\D/g, '') || 0;
+    if (aNum || bNum) {
+        return parseInt(aNum) - parseInt(bNum);
+    }
+    return a.localeCompare(b);
+};
+
+var checkName = function (name, names) {
+    names = names.sort(arraysort);
+    var i = 0,
+        j = 1,
+        nameOrg = name;
+    while (i < names.length) {
+        if (name === names[i]) {
+            name = nameOrg + j;
+            j += 1;
+        }
+        i += 1;
+    }
+    return name;
+}
+
+alert(checkName('umf', existingNames4));
+
+
+
 
